@@ -1,0 +1,45 @@
+m=input('Enter the Size ');
+s=input('Enter the value of sigma ');
+sum1=0;
+a=m/2;
+p=0;q=0;
+r=1;
+t=1;
+w=floor(a);
+for i=-w:w
+for j=-w:w
+p=i*i;
+q=j*j;
+g(r,t)=exp(-(p+q)/(2*s*s));
+sum1=sum(sum(g(r,t)+sum1));
+t=t+1;
+end
+t=1;
+r=r+1;
+end
+for r=1:m
+for t=1:m
+h(r,t)=g(r,t)/sum1;
+t=t+1;
+end
+t=1;
+r=r+1;
+end
+im=imread('D:\cameraman.jpeg');
+p=double(im);
+s1=0;
+[M N]=size(p);
+for x=0:M-m
+for y=0:N-m
+for s=1:m
+for z=1:m
+s1=(h(s,z)*(p(x+s,y+z)))+s1;
+end
+end
+N_img(x+1,y+1)=s1;
+s1=0;
+end
+end
+
+subplot(1,2,1),imshow(uint8(im)),title('Original Image');
+subplot(1,2,2),imshow(uint8(N_img)),title('Image After Gaussian Filter');

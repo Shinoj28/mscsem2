@@ -1,0 +1,75 @@
+a)Log Transformation:
+
+a=imread('D:\klaroline.jpeg');
+[m,n]=size(a);
+for i=1:m
+for j=1:n
+x=a(i,j);
+b(i,j)=20*log(1+double(x));
+end
+end
+subplot(1,2,1),imshow(a),title('Original');
+subplot(1,2,2),imshow(b),title('Log Transform');
+
+
+b)Power Law Transformation:
+
+a=imread('D:\cameraman.jpeg');
+[m,n]=size(a);
+for i=1:m
+for j=1:n
+x=double(a(i,j));
+b(i,j)=20*(x^0.4);
+c(i,j)=20*(x^0.6);
+d(i,j)=20*(x^0.9);
+end
+end
+subplot(2,2,1),imshow(a),title('Original');
+subplot(2,2,2),imshow(b),title('Power Law Transform : Gamma = 0.4');
+subplot(2,2,3),imshow(c),title('Power Law Transform : Gamma = 0.6');
+subplot(2,2,4),imshow(d),title('Power Law Transform : Gamma = 0.9');
+
+
+c)Negation code
+
+a=imread('D:\klaroline.jpeg');
+[m,n]=size(a);
+for i=1:m
+for j=1:n
+b(i,j)=255 - a(i,j);
+end
+end
+subplot(1,2,1),imshow(a),title('Original');
+subplot(1,2,2),imshow(b),title('Negation');
+
+
+d) Piecewise linear transformations
+
+clc;
+clear all;
+a=imread('D:\klaroline.jpeg');
+b=double(a);
+subplot(2,3,1);
+imshow(a);
+title('Original Image');
+f1=bitget(b,1);
+subplot(2,3,2);
+imshow(f1);
+title('bit 1 Image');
+f2=bitget(b,2);
+subplot(2,3,3);
+imshow(f2);
+title('bit 2 Image');
+f3=bitget(b,4);
+subplot(2,3,4);
+imshow(f3);
+title('bit 3 Image');
+f4=bitget(b,6);
+subplot(2,3,5);
+imshow(f4);
+title('bit 6 Image');
+f5=bitget(b,8);
+subplot(2,3,6);
+imshow(f5);
+title('bit 8 Image');
+

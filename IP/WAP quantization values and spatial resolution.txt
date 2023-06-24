@@ -1,0 +1,28 @@
+Quantization
+
+a=imread('D:\damon.jpeg');  
+[m,n]=size(a);  
+for i=1:m  
+for j=1:n  
+b(i,j)=(a(i,j))/255*63;  
+c(i,j)=(a(i,j))/255*127;  
+d(i,j)=(a(i,j))/255*191;  
+end  
+end  
+subplot(2,2,1),imshow(a),title('Original');  
+subplot(2,2,2),imshow(b),title('Quantized 63');  
+subplot(2,2,3),imshow(c),title('Quantized 127');  
+subplot(2,2,4),imshow(d),title('Quantized 191');
+
+
+Spatial Resolution
+
+i=imread('D:\damon.jpeg'); 
+a=imresize(i,0.8); 
+b=imresize(i,0.6); 
+c=imresize(i,0.4); 
+subplot(2,2,1),imshow(i),title('Original'); 
+subplot(2,2,2),imshow(a),title('0.8'); 
+subplot(2,2,3),imshow(c),title('0.6'); 
+subplot(2,2,4),imshow(c),title('0.4');
+

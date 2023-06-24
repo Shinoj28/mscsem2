@@ -1,0 +1,19 @@
+a = imread('D:\klaroline.jpeg');
+a = double(a);
+[row col] = size(a);
+h = zeros(1,300);
+for n = 1:1:row
+for m = 1:1:col
+if a(n,m) == 0
+a(n,m) = 1;
+end
+end
+end
+for n = 1:1:row
+for m = 1:1:col
+t = a(n,m);
+h(t) = h(t)+1;
+end
+end
+subplot(1,2,1),imshow(uint8(a)); title('Original Image');
+subplot(1,2,2),bar(h),title('Histogram');
