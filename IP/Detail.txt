@@ -1,0 +1,11 @@
+Image Inhancement:
+a)Thresholding
+b) Contrast Adjustment
+c) Brightness Adjustment
+d) Gray Level Slicing
+
+Basic Transformation:
+a)Log Transformation
+b)Power Law Transformation
+c)Negation code
+d)Piecewise linear transformations
