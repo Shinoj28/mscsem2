@@ -1,0 +1,10 @@
+clear all;
+clc;
+aa=imread('moon.jpeg');
+se1=strel('square',11);
+subplot(2,1,1),imshow(aa);
+m1=imerode(aa,se1);
+m2=aa-m1;
+title('orignal image');
+subplot(2,1,2),imshow(m2);
+title('edge detection');
